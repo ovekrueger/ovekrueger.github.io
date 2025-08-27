@@ -1,57 +1,95 @@
-<!DOCTYPE html>
-<html lang="de">
-<head>
-  <meta charset="UTF-8" />
-  <title>Sinnwärts – Start</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <!-- Schrift optional: Systemfonts, keine Abhängigkeiten -->
-  <style>
-    :root { --bg:#fff; --fg:#111; --muted:#666; --accent:#ffcc33; --maxw:800px; }
-    * { box-sizing: border-box; }
-    body { margin:0; font:16px/1.6 -apple-system, system-ui, Segoe UI, Roboto, Arial, sans-serif; color:var(--fg); background:var(--bg); }
-    header { padding:56px 20px 24px; border-bottom:1px solid #eee; }
-    .wrap { max-width:var(--maxw); margin:0 auto; }
-    .brand { font-size:14px; letter-spacing:.12em; color:var(--muted); text-transform:uppercase; }
-    h1 { margin:.25rem 0 0; font-size:40px; line-height:1.1; }
-    nav { padding:12px 20px; border-bottom:1px solid #eee; background:#fafafa; }
-    nav a { margin-right:16px; text-decoration:none; color:#333; }
-    nav a:hover { text-decoration:underline; }
-    .hero { padding:48px 20px; }
-    .kicker { color:var(--muted); margin:0 0 .5rem; }
-    .tag { display:inline-block; background:var(--accent); color:#000; font-weight:600; padding:.1rem .5rem; border-radius:.4rem; }
-    .cta { margin-top:24px; display:inline-block; padding:12px 18px; border:1px solid #000; border-radius:.6rem; text-decoration:none; color:#000; }
-    footer { padding:20px; border-top:1px solid #eee; color:var(--muted); font-size:14px; }
-  </style>
-</head>
-<body>
-  <header>
-    <div class="wrap">
-      <div class="brand">Sinnwärts</div>
-      <h1>Willkommen bei K.O.M. – Klarheit · Orientierung · Menschlichkeit · <span class="tag">Integral</span></h1>
-    </div>
-  </header>
+/* === Sinnwärts – Base Styles =========================================== */
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap");
 
-  <nav>
-    <div class="wrap">
-      <a href="index.html">Start</a>
-      <a href="ueber-mich.html">Über mich</a>
-      <a href="angebot.html">Angebot</a>
-      <a href="nora.html">N.O.R.A.</a>
-      <a href="kontakt.html">Kontakt</a>
-    </div>
-  </nav>
+:root{
+  --bg:#0b0b0b;
+  --panel:#141414;
+  --ink:#f4f4f4;
+  --muted:#b6b6b6;
+  --accent:#ffd24a;          /* warmes Gelb */
+  --accent-ink:#1a1a1a;
+  --ring:#3a300f;
+  --radius:22px;
+  --shadow:0 10px 30px rgba(0,0,0,.45);
+  --max:1100px;
+  --gap:22px;
+}
 
-  <main class="hero">
-    <div class="wrap">
-      <p class="kicker">Sucht sucht Sinn – Klarheit sucht N.O.R.A.</p>
-      <p>Ich bin Ove Krüger. Ich begleite Menschen aus Verstrickung und Suchtdynamiken zurück in Sinn, Selbstkontakt und Richtung.
-         K.O.M. ist mein Klarheitskompass – Denken · Fühlen · Handeln · Sein.</p>
-      <a class="cta" href="kontakt.html">Kontakt aufnehmen</a>
-    </div>
-  </main>
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;background:var(--bg);color:var(--ink);font-family:Montserrat,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Arial,sans-serif}
+img{max-width:100%;height:auto;display:block;border-radius:calc(var(--radius) - 6px)}
+a{color:var(--accent);text-decoration:none}
+a:hover{opacity:.9}
+ul{padding-left:1.1rem}
 
-  <footer>
-    <div class="wrap">© 2025 Ove Krüger – Sinnwärts Coaching</div>
-  </footer>
-</body>
-</html>
+/* Layout */
+section{width:100%;padding:64px 20px}
+section > *{max-width:var(--max);margin-inline:auto}
+.container{max-width:var(--max);margin:0 auto;padding:0 20px}
+
+/* === Header / Nav ====================================================== */
+header{position:sticky;top:0;z-index:50;background:linear-gradient(to bottom, rgba(11,11,11,.96), rgba(11,11,11,.75));backdrop-filter:saturate(120%) blur(4px);border-bottom:1px solid #171717}
+nav{max-width:var(--max);margin:0 auto;padding:14px 20px;display:flex;align-items:center;gap:16px}
+nav h1{margin:0;font-size:1.05rem;letter-spacing:.3px;color:var(--accent)}
+nav ul{margin:0 0 0 auto;padding:0;display:flex;gap:18px;list-style:none}
+nav a{padding:8px 10px;border-radius:12px;transition:background .2s}
+nav a:hover{background:#111}
+
+/* === Hero ============================================================== */
+.hero{padding:90px 20px 40px}
+.hero > *{max-width:var(--max)}
+.hero h2{font-size:clamp(1.8rem,3.2vw,2.6rem);line-height:1.2;margin:0 0 10px}
+.hero p{color:var(--muted);margin:0 0 20px;font-weight:500}
+.button{display:inline-block;background:var(--accent);color:var(--accent-ink);padding:12px 18px;border-radius:999px;font-weight:700;border:1px solid var(--ring);box-shadow:inset 0 0 0 1px rgba(255,255,255,.06), 0 6px 18px rgba(255,210,74,.25);transition:transform .06s ease, box-shadow .2s ease}
+.button:hover{transform:translateY(-1px);box-shadow:inset 0 0 0 1px rgba(255,255,255,.08), 0 10px 24px rgba(255,210,74,.3)}
+
+/* === Portrait ========================================================== */
+.portrait{padding-top:0}
+.portrait img{width:min(380px,90vw);border:1px solid #1f1f1f;box-shadow:var(--shadow)}
+
+/* === Über mich ========================================================= */
+.ueber-mich h3,
+.angebote h3,
+.klarheitskompass h3,
+.about-ove h3,
+.stimmen h3,
+.kontakt h3{font-size:1.6rem;margin:0 0 18px}
+
+.ueber-mich p{color:var(--muted);margin:0 0 10px}
+.ueber-mich ul{display:grid;gap:8px;margin:14px 0 0 0}
+
+/* === Angebote / Cards ================================================== */
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--gap);margin:12px 0 22px}
+@media (max-width:860px){.cards{grid-template-columns:1fr}}
+.card{background:var(--panel);border:1px solid #1f1f1f;border-radius:var(--radius);padding:18px 18px 16px;box-shadow:var(--shadow);font-weight:600}
+.card small{display:block;color:var(--muted);font-weight:500;margin-top:8px}
+
+/* === Klarheitskompass ================================================== */
+.klarheitskompass img{width:min(520px,90vw);margin-inline:auto;border:1px solid #1f1f1f;box-shadow:var(--shadow)}
+.klarheitskompass p{color:var(--muted);text-align:center;margin:14px auto 0}
+
+/* === About Ove ========================================================= */
+.about-ove ul{margin:10px 0 18px;display:grid;gap:8px}
+.about-ove img{width:min(360px,88vw);border:1px solid #1f1f1f;box-shadow:var(--shadow)}
+
+/* === Testimonials ====================================================== */
+.stimmen blockquote{background:var(--panel);border:1px solid #1f1f1f;border-radius:var(--radius);padding:16px 18px;margin:0 0 var(--gap);color:var(--ink);box-shadow:var(--shadow)}
+@media (min-width:861px){
+  .stimmen blockquote{display:inline-block;margin-right:var(--gap);min-width:260px}
+}
+
+/* === Kontakt =========================================================== */
+.kontakt p{color:var(--muted)}
+form{display:grid;gap:12px;max-width:680px}
+input,textarea,button{font:inherit}
+input,textarea{background:#0f0f0f;border:1px solid #1f1f1f;color:var(--ink);padding:12px 14px;border-radius:14px;outline:none}
+input:focus,textarea:focus{border-color:#2b2b2b;box-shadow:0 0 0 4px rgba(255,210,74,.08)}
+textarea{min-height:150px;resize:vertical}
+button[type="submit"]{justify-self:start}
+.kontakt .hinweis{font-size:.9rem;color:var(--muted);margin-top:6px}
+
+/* === Footer ============================================================ */
+footer{border-top:1px solid #171717;background:#0a0a0a}
+footer p, footer a{max-width:var(--max);margin:0 auto;padding:18px 20px;display:inline-block}
+footer a{color:var(--muted);padding-left:0}
+footer a:hover{color:var(--accent)}
